@@ -1,0 +1,45 @@
+{
+    "name": "MuteControls",
+    "maps": [
+        {
+            "name": "UI",
+            "id": "d3d62610-5bd3-48fc-80d8-a9c6ebbd5b0f",
+            "actions": [
+                {
+                    "name": "ToggleMute",
+                    "type": "Button",
+                    "id": "a409432a-b844-4f7e-953f-203dd49f2b63",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "3fd660fd-c07a-4956-9335-301139d4d0e9",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleMute",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "35abc841-60ce-4810-82b2-e12a1127b77e",
+                    "path": "<Touchscreen>/primaryTouch/tap",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleMute",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

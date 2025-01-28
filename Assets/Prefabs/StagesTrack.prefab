@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4208986652041725646
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6819249900332908355}
+  - component: {fileID: 8643592517463962911}
+  - component: {fileID: 1945008591188124921}
+  m_Layer: 0
+  m_Name: StagesTrack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6819249900332908355
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4208986652041725646}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 609.9109, y: 339.96582, z: -0.6461487}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8643592517463962911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4208986652041725646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b1b787a92a2666419fcf96104c7e7ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  miniGamesAndStages: {fileID: 11400000, guid: b4246cdecc4d1cb4ba05c123895c6b75, type: 2}
+  timeData: {fileID: 11400000, guid: a8dc34299df86cb4ba3eae6587b8ea3c, type: 2}
+  scoreData: {fileID: 11400000, guid: fe3fb9933b16b464aa76d37cc5a1d107, type: 2}
+  managedScenes:
+  - MazeGame
+  - 
+  - 
+--- !u!114 &1945008591188124921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4208986652041725646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d8489bfa9344624d90058e2d5123b83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  miniGamesAndStages: {fileID: 11400000, guid: b4246cdecc4d1cb4ba05c123895c6b75, type: 2}
+  scoreData: {fileID: 11400000, guid: fe3fb9933b16b464aa76d37cc5a1d107, type: 2}
+  timeData: {fileID: 11400000, guid: a8dc34299df86cb4ba3eae6587b8ea3c, type: 2}
+  gameStats: {fileID: 11400000, guid: ebb543a91128a1d4ba4c6c2b3a1db3ab, type: 2}
+  maxScore: 100
+  maxTime: 60

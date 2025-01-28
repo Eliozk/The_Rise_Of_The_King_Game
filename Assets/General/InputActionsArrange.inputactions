@@ -1,0 +1,45 @@
+{
+    "name": "InputActionsArrange",
+    "maps": [
+        {
+            "name": "PlayerControls",
+            "id": "f5e175d3-c648-4435-99d0-70fccb36f2f4",
+            "actions": [
+                {
+                    "name": "Drag",
+                    "type": "Value",
+                    "id": "b5731472-62e3-41d3-8de4-a06540f2d044",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "f61fdbe6-8134-4dca-b489-2d68138067fb",
+                    "path": "<Pointer>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Drag",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "574156ad-6b5a-4104-9811-9ec19e323011",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Drag",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

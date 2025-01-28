@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: d46ca91d1c285ac40b8867e2be7cf75a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - itemCounterText: {instanceID: 0}
+  - progressSound: {fileID: 8300000, guid: 6d59167bdbcd52641b56d26912208183, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

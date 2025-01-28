@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 75dc2e16e618d6d48bdfdf5c9a80c90b
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 170798
+  packageName: Sherbb's Particle Collection
+  packageVersion: 1.0
+  assetPath: Assets/Sherbbs Particle Collection/Materials/VertexLitDiffuseRoundedSquare.mat
+  uploadId: 379554
