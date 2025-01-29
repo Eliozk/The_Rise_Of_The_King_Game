@@ -17,7 +17,7 @@ public class ScoreManagerInvaders : MonoBehaviour
     /// Tracks the player's current score.
     /// </summary>
     private int currentScore = 0;
-    private float NoTime = 0f; // in invaders there is no value for timing reasults therefore update always time to 0.
+    private float noTime = 0f; // in invaders there is no value for timing reasults therefore update always time to 0.
 
     /// <summary>
     /// Points awarded for a correct action.
@@ -30,12 +30,12 @@ public class ScoreManagerInvaders : MonoBehaviour
     [SerializeField] private int pointsPerIncorrectAction = -5;
     private const int MinScore = 0; // Define a constant for the minimum score
 
-     [Header("Scriptable Objects")]
+    [Header("Scriptable Objects")]
     /// <summary>
     /// Reference to the ScriptableObject that stores score data.
     /// </summary>
     [SerializeField] private ScoreData scoreData;
-    [SerializeField] private GameStats gameStats; 
+    [SerializeField] private GameStats gameStats;
 
     private LevelUpManager levelUpManager; // Reference to LevelUpManager
     private string gameName; // Name of the current game
@@ -66,7 +66,7 @@ public class ScoreManagerInvaders : MonoBehaviour
             }
         }
 
-         // Ensure the ScoreData ScriptableObject is assigned
+        // Ensure the ScoreData ScriptableObject is assigned
         if (scoreData == null)
         {
             Debug.LogError("[ScoreManager] ScoreData ScriptableObject is not assigned!");
@@ -85,7 +85,7 @@ public class ScoreManagerInvaders : MonoBehaviour
     {
         currentScore += pointsPerCorrectAction;
         Debug.Log($"[ScoreManager] Added {pointsPerCorrectAction} points. Current score: {currentScore}");
-     // Update the ScriptableObject
+        // Update the ScriptableObject
         if (scoreData != null)
         {
             scoreData.UpdateScore(gameName, currentSceneName, currentScore);
@@ -96,22 +96,22 @@ public class ScoreManagerInvaders : MonoBehaviour
     /// Subtracts points for an incorrect action.
     /// </summary>
     public void SubtractScore()
-{
-    currentScore += pointsPerIncorrectAction;
-
-    // Ensure the score does not drop below the minimum
-    if (currentScore < MinScore)
     {
-        currentScore = MinScore;
-    }
+        currentScore += pointsPerIncorrectAction;
 
-    Debug.Log($"[ScoreManager] Subtracted {Mathf.Abs(pointsPerIncorrectAction)} points. Current score: {currentScore}");
+        // Ensure the score does not drop below the minimum
+        if (currentScore < MinScore)
+        {
+            currentScore = MinScore;
+        }
 
-    // Update the ScriptableObject
-    if (scoreData != null)
-    {
-        scoreData.UpdateScore(gameName, currentSceneName, currentScore);
-    }
+        Debug.Log($"[ScoreManager] Subtracted {Mathf.Abs(pointsPerIncorrectAction)} points. Current score: {currentScore}");
+
+        // Update the ScriptableObject
+        if (scoreData != null)
+        {
+            scoreData.UpdateScore(gameName, currentSceneName, currentScore);
+        }
     }
 
     /// <summary>
@@ -123,7 +123,7 @@ public class ScoreManagerInvaders : MonoBehaviour
         if (scoreData != null)
         {
             scoreData.UpdateScore(gameName, currentSceneName, currentScore);
-            gameStats.UpdateStageStats(gameName, currentSceneName, currentScore, NoTime);
+            gameStats.UpdateStageStats(gameName, currentSceneName, currentScore, noTime);
 
         }
 

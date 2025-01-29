@@ -19,9 +19,7 @@ public class LifeManager : MonoBehaviour
         }
     }
 
-    
     /// Updates the heart UI to reflect the current number of lives.
-    
     public void UpdateHearts(int livesRemaining)
     {
         for (int i = 0; i < hearts.Length; i++)
@@ -29,10 +27,7 @@ public class LifeManager : MonoBehaviour
             hearts[i].enabled = i < livesRemaining; // Enable hearts if the index is within the range of remaining lives
         }
     }
-
-   
     /// Resets all hearts to be visible (enabled).
-    
     public void ResetHearts()
     {
         foreach (Image heart in hearts)

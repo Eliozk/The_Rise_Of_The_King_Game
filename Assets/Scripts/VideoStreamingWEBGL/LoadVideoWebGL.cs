@@ -3,12 +3,12 @@ using UnityEngine;
 public class LoadVideoWebGL : MonoBehaviour
 {
     public UnityEngine.Video.VideoPlayer videoPlayer; // VideoPlayer component reference
-    [SerializeField] private string VideoName; // Name of the video file to be played
+    [SerializeField] private string videoName; // Name of the video file to be played
 
     void Start()
     {
         // Construct the path to the video based on the platform
-        string videoPath = System.IO.Path.Combine(Application.streamingAssetsPath, VideoName);
+        string videoPath = System.IO.Path.Combine(Application.streamingAssetsPath, videoName);
         
         // Platform check
         #if UNITY_WEBGL
