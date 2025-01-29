@@ -48,17 +48,12 @@ public class CharacterSpawner : MonoBehaviour
         // Define the spawn position for the character
         Vector3 spawnPos = new Vector3(zero, spawnPoint.position.y, zero);
 
-       
-
         // Instantiate the character at the spawn position with no rotation
         GameObject spawnedCharacter = Instantiate(characters[index], spawnPos, Quaternion.identity);
 
         // Scale the spawned character by 1.3x
         spawnedCharacter.transform.localScale *= characterUpScale;
-    
-}
-
-
+    }
 
     public void StartSpawning()
     {
@@ -66,7 +61,6 @@ public class CharacterSpawner : MonoBehaviour
         if (!isSpawning)
         {
             isSpawning = true;
-
             // Schedule the SpawnCharacter method to be called repeatedly
             InvokeRepeating(nameof(SpawnCharacter), zero, spawnInterval);
         }

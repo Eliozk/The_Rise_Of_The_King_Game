@@ -171,7 +171,7 @@ public class FallingCharacterController : MonoBehaviour
                 Debug.Log("Robber entered the Kingdom! Losing a life.");
                 scoreManager?.SubtractScore();
 
-                 if (gameManager != null)
+                if (gameManager != null)
                 {
                     gameManager.LoseLife();
                 }

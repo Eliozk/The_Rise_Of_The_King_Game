@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using UnityEngine.SceneManagement; 
-
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 // Define the WallState enum to represent the walls of a cell in the maze.
@@ -101,7 +100,6 @@ public static class MazeGenerator
                 SharedWall = WallState.LEFT
             });
         }
-
         // Check the bottom neighbor
         if (p.Y > zero && !maze[p.X, p.Y - one].HasFlag(WallState.VISITED))
         {
@@ -111,7 +109,6 @@ public static class MazeGenerator
                 SharedWall = WallState.DOWN
             });
         }
-
         // Check the top neighbor
         if (p.Y < height - one && !maze[p.X, p.Y + one].HasFlag(WallState.VISITED))
         {
@@ -121,7 +118,6 @@ public static class MazeGenerator
                 SharedWall = WallState.UP
             });
         }
-
         // Check the right neighbor
         if (p.X < width - one && !maze[p.X + one, p.Y].HasFlag(WallState.VISITED))
         {
@@ -148,26 +144,16 @@ public static class MazeGenerator
                 maze[i, j] = initial; // 1111
             }
         }
-
-
-
         if ((SceneManager.GetActiveScene().name == "level1"))
         {
-
             maze[zero, UnityEngine.Random.Range(zero, height)] &= ~WallState.LEFT; // Remove left wall of leftmost cell
             maze[width - one, Random.Range(zero, height)] &= ~WallState.RIGHT; // Remove right wall of rightmost cell
-
         }
-
         if ((SceneManager.GetActiveScene().name == "level2") || (SceneManager.GetActiveScene().name == "level3"))
         {
             maze[width - one, Random.Range(zero, height)] &= ~WallState.RIGHT; // Remove right wall of rightmost cell
         }
-
-
-
         return ApplyRecursiveBacktracker(maze, width, height);
-
     }
 }
-    
+

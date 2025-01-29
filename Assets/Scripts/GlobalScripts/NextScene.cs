@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class NextScene : MonoBehaviour
 {
     [Header("Transition Settings")]
-    [Tooltip("The name of the scene to load.")]   
+    [Tooltip("The name of the scene to load.")]
     [SerializeField] private string sceneToLoad; // The name of the scene to load
 
     [Tooltip("Delay (in seconds) before transitioning to the next scene.")]
@@ -22,28 +22,25 @@ public class NextScene : MonoBehaviour
     [SerializeField] private ScoreData scoreData;
 
     [Tooltip("Reference to the GameStats Scriptable Object.")]
-    [SerializeField]private GameStats gameStats;
+    [SerializeField] private GameStats gameStats;
 
-//Ensuring gamestate not destroying accrossing different scenes
-private void Awake()
-{
-    if (gameStats == null)
+    //Ensuring gamestate not destroying accrossing different scenes
+    private void Awake()
     {
-        // Load GameStats from Resources
-        gameStats = Resources.Load<GameStats>("ScriptableObjects/GameStats");
-        if (gameStats != null)
+        if (gameStats == null)
         {
-            Debug.Log("[NextScene] GameStats successfully loaded from Resources.");
-        }
-        else
-        {
-            Debug.Log("[NextScene] GameStats is missing and could not be found in Resources.");
+            // Load GameStats from Resources
+            gameStats = Resources.Load<GameStats>("ScriptableObjects/GameStats");
+            if (gameStats != null)
+            {
+                Debug.Log("[NextScene] GameStats successfully loaded from Resources.");
+            }
+            else
+            {
+                Debug.Log("[NextScene] GameStats is missing and could not be found in Resources.");
+            }
         }
     }
-}
-
-
-
 
     /// <summary>
     /// Transitions to the specified scene, resetting time and score if the current scene is part of a game stage.
@@ -118,7 +115,7 @@ private void Awake()
         }
     }
 
-/// <summary>
+    /// <summary>
     /// Retrieves the game name associated with the current stage.
     /// </summary>
     /// <param name="currentSceneName">The name of the current scene.</param>
@@ -130,7 +127,6 @@ private void Awake()
             Debug.LogError("[NextScene] GameStats is not assigned.");
             return null;
         }
-
         foreach (var game in gameStats.games)
         {
             foreach (var stage in game.stages)

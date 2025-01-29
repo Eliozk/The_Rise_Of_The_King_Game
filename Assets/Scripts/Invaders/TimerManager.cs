@@ -10,11 +10,8 @@ public class TimerManager : MonoBehaviour
     private float currentTime; // Current countdown time
     private int zero = 0; // Constant for zero to avoid magic numbers
     private bool levelCompleted = false; // Flag to ensure level completion logic runs only once
-
-
     private LevelUpManager levelUpManager; // Reference to the LevelUpManager
     private ScoreManagerInvaders scoreManagerInvaders; // Reference to the ScoreManagerInvaders
-
 
     private void Awake()
     {
@@ -28,7 +25,6 @@ public class TimerManager : MonoBehaviour
             Destroy(gameObject); // Destroy duplicate TimerManager objects
         }
     }
-
     private void Start()
     {
         // Find the LevelUpManager in the scene
@@ -46,12 +42,10 @@ public class TimerManager : MonoBehaviour
 
         ResetTimer(); // Initialize the timer at the start of the level
     }
-
     private void Update()
     {
         HandleTimer(); // Update the timer every frame
     }
-
     private void HandleTimer()
     {
         // If there is remaining time, decrement it and update the display
@@ -60,7 +54,7 @@ public class TimerManager : MonoBehaviour
             currentTime -= Time.deltaTime; // Reduce the time by the elapsed frame time
             timerText.text = Mathf.Ceil(currentTime).ToString() + " :רתונש ןמז "; // Update the timer UI
         }
-        else if(!levelCompleted)
+        else if (!levelCompleted)
         {
             levelCompleted = true; // Set the flag to prevent repeated level completion
 
@@ -69,7 +63,6 @@ public class TimerManager : MonoBehaviour
             LevelComplete();
         }
     }
-
     public void ResetTimer()
     {
         // Reset the timer to the total level time
@@ -82,33 +75,32 @@ public class TimerManager : MonoBehaviour
         // Stop spawning characters when the level is complete
         CharacterSpawner.Instance.StopSpawning();
 
-         // Destroy all characters with the "King" tag
-    GameObject[] kingCharacters = GameObject.FindGameObjectsWithTag("King");
-    if (kingCharacters != null && kingCharacters.Length > zero)
-    {
-        foreach (GameObject character in kingCharacters)
+        // Destroy all characters with the "King" tag
+        GameObject[] kingCharacters = GameObject.FindGameObjectsWithTag("King");
+        if (kingCharacters != null && kingCharacters.Length > zero)
         {
-            Destroy(character);
+            foreach (GameObject character in kingCharacters)
+            {
+                Destroy(character);
+            }
         }
-    }
-    else
-    {
-        Debug.Log("[TimerManager] No objects found with the tag 'King'.");
-    }
-
-    // Destroy all characters with the "Robber" tag
-    GameObject[] robberCharacters = GameObject.FindGameObjectsWithTag("Robber");
-    if (robberCharacters != null && robberCharacters.Length > zero)
-    {
-        foreach (GameObject character in robberCharacters)
+        else
         {
-            Destroy(character);
+            Debug.Log("[TimerManager] No objects found with the tag 'King'.");
         }
-    }
-    else
-    {
-        Debug.Log("[TimerManager] No objects found with the tag 'Robber'.");
-    }
+        // Destroy all characters with the "Robber" tag
+        GameObject[] robberCharacters = GameObject.FindGameObjectsWithTag("Robber");
+        if (robberCharacters != null && robberCharacters.Length > zero)
+        {
+            foreach (GameObject character in robberCharacters)
+            {
+                Destroy(character);
+            }
+        }
+        else
+        {
+            Debug.Log("[TimerManager] No objects found with the tag 'Robber'.");
+        }
         // Trigger the LevelUpManager to show the LevelUpPic
         if (levelUpManager != null)
         {
@@ -119,6 +111,4 @@ public class TimerManager : MonoBehaviour
             Debug.LogError("[TimerManager] LevelUpManager is not assigned or found in the scene.");
         }
     }
-
-
 }

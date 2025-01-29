@@ -10,11 +10,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int SecondsToWaitBeforeGameOver = 1;
 
     private int zero = 0;
-
     // Reference to LifeManager, TimerManager, and CharacterSpawner
     private LifeManager lifeManager;
     private TimerManager timerManager;
-
     private CharacterSpawner characterSpawner;
 
     // Audio Management
@@ -56,7 +54,7 @@ public class GameManager : MonoBehaviour
 
         if (lives <= zero)
         {
-             StartCoroutine(WaitAndLoadGameOverScene()); // Start the coroutine to wait before loading the scene
+            StartCoroutine(WaitAndLoadGameOverScene()); // Start the coroutine to wait before loading the scene
             //GameOver();
         }
     }
@@ -71,12 +69,6 @@ public class GameManager : MonoBehaviour
         // Now load the game over scene, assuming "GameOverScene" is the name of your scene
         SceneManager.LoadScene("GameOverScene");
     }
-
-    // Additional public methods to allow external scripts to trigger sounds
-    // public void PlayPositiveSound()
-    // {
-    //     PlaySound(positiveSound);
-    // }
 
     public void PlayNegativeSound()
     {

@@ -29,14 +29,9 @@ public class ProgressBarManager : MonoBehaviour
     [Header("Audio Settings")]
     [Tooltip("Sound played when progress is updated.")]
     public AudioClip progressSound;
-
-    // [Tooltip("Sound played when the level is completed.")]
-    // public AudioClip levelEndSound;
-
     private AudioSource audioSource;
-
-     private SceneManagement sceneManagement;
-     private int maxScore = 100;
+    private SceneManagement sceneManagement;
+    private int maxScore = 100;
 
     [Header("Scriptable Objects")]
     [SerializeField] private ScoreData scoreData; // Reference to ScoreData.
@@ -46,7 +41,6 @@ public class ProgressBarManager : MonoBehaviour
     [Header("UI Elements")]
     public TMP_Text scoreText;
     public TMP_Text timeText;
-
     private float startTime;
 
     private void Start()
@@ -70,7 +64,7 @@ public class ProgressBarManager : MonoBehaviour
         UpdateProgressBar();
 
         startTime = Time.time; // Start measuring time
-         var sceneManagement = SceneManagement.Instance.GetComponent<SceneManagement>();
+        var sceneManagement = SceneManagement.Instance.GetComponent<SceneManagement>();
         if (sceneManagement != null)
         {
 
@@ -143,7 +137,6 @@ public class ProgressBarManager : MonoBehaviour
         timeData.UpdateTime(gameName, currentSceneName, timeTaken);
         gameStats.UpdateStageStats(gameName, currentSceneName, calculatedScore, timeTaken);
 
-
         // Display results
         DisplayResults(gameName, timeTaken, calculatedScore);
 
@@ -159,46 +152,43 @@ public class ProgressBarManager : MonoBehaviour
         }
     }
 
-/// <summary>
-/// Calculates the player's score based on the time taken to complete the stage.
-/// The faster the completion, the higher the score, with a gentle decrease for longer durations.
-/// </summary>
-/// <param name="timeTaken">The total time taken by the player to complete the stage.</param>
-/// <returns>An integer representing the player's score based on completion time.</returns>
-private int CalculateScore(float timeTaken)
-{
-    // Constants for time thresholds
-    const float FAST_COMPLETION_TIME = 60f;  // 1 minute
-    const float MEDIUM_COMPLETION_TIME = 180f; // 3 minutes
-    const float MAX_TIME_ALLOWED = 300f; // 5 minutes
-
-    // Score boundaries
-    const int MAX_SCORE = 100;
-    const int HIGH_SCORE = 90;
-    const int MEDIUM_SCORE = 75;
-    const int MIN_SCORE = 65;
-
-    if (timeTaken <= FAST_COMPLETION_TIME) // Within a minute 
+    /// <summary>
+    /// Calculates the player's score based on the time taken to complete the stage.
+    /// The faster the completion, the higher the score, with a gentle decrease for longer durations.
+    /// </summary>
+    /// <param name="timeTaken">The total time taken by the player to complete the stage.</param>
+    /// <returns>An integer representing the player's score based on completion time.</returns>
+    private int CalculateScore(float timeTaken)
     {
-        // score between 100-90
-        return Mathf.RoundToInt(HIGH_SCORE + ((FAST_COMPLETION_TIME - timeTaken) / FAST_COMPLETION_TIME) * (MAX_SCORE - HIGH_SCORE));
-    }
-    else if (timeTaken <= MEDIUM_COMPLETION_TIME) // Between 1 min to 3 min
-    {
-        // Score between 90-75 decrease according to time
-        float normalizedTime = (timeTaken - FAST_COMPLETION_TIME) / (MEDIUM_COMPLETION_TIME - FAST_COMPLETION_TIME);
-        return Mathf.RoundToInt(MEDIUM_SCORE + (HIGH_SCORE - MEDIUM_SCORE) * (1 - normalizedTime));
-    }
-    else // More than 3 min
-    {
-        // Score between 75-65
-        float normalizedTime = Mathf.Clamp01((timeTaken - MEDIUM_COMPLETION_TIME) / (MAX_TIME_ALLOWED - MEDIUM_COMPLETION_TIME));
-        return Mathf.RoundToInt(MIN_SCORE + (MEDIUM_SCORE - MIN_SCORE) * (1 - normalizedTime));
-    }
-}
+        // Constants for time thresholds
+        const float FAST_COMPLETION_TIME = 60f;  // 1 minute
+        const float MEDIUM_COMPLETION_TIME = 180f; // 3 minutes
+        const float MAX_TIME_ALLOWED = 300f; // 5 minutes
 
+        // Score boundaries
+        const int MAX_SCORE = 100;
+        const int HIGH_SCORE = 90;
+        const int MEDIUM_SCORE = 75;
+        const int MIN_SCORE = 65;
 
-
+        if (timeTaken <= FAST_COMPLETION_TIME) // Within a minute 
+        {
+            // score between 100-90
+            return Mathf.RoundToInt(HIGH_SCORE + ((FAST_COMPLETION_TIME - timeTaken) / FAST_COMPLETION_TIME) * (MAX_SCORE - HIGH_SCORE));
+        }
+        else if (timeTaken <= MEDIUM_COMPLETION_TIME) // Between 1 min to 3 min
+        {
+            // Score between 90-75 decrease according to time
+            float normalizedTime = (timeTaken - FAST_COMPLETION_TIME) / (MEDIUM_COMPLETION_TIME - FAST_COMPLETION_TIME);
+            return Mathf.RoundToInt(MEDIUM_SCORE + (HIGH_SCORE - MEDIUM_SCORE) * (1 - normalizedTime));
+        }
+        else // More than 3 min
+        {
+            // Score between 75-65
+            float normalizedTime = Mathf.Clamp01((timeTaken - MEDIUM_COMPLETION_TIME) / (MAX_TIME_ALLOWED - MEDIUM_COMPLETION_TIME));
+            return Mathf.RoundToInt(MIN_SCORE + (MEDIUM_SCORE - MIN_SCORE) * (1 - normalizedTime));
+        }
+    }
 
     /// <summary>
     /// Displays results for the completed stage.
@@ -217,7 +207,6 @@ private int CalculateScore(float timeTaken)
     {
         if (progressBarStages.Length > 0 && progressBarImage != null)
         {
-
             int index = Mathf.Clamp(currentProgress, 0, progressBarStages.Length - 1);
             progressBarImage.sprite = progressBarStages[index];
         }

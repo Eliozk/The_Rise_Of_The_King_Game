@@ -5,17 +5,11 @@ public class itemsScript : MonoBehaviour
 {
     // Reference to the TextMeshProUGUI component that will display the item count
     public TextMeshProUGUI itemCounterText;
-
     // The total number of items required for the player to collect
-     public int totalItems = 1; // Default value is 1
-
+    public int totalItems = 1; // Default value is 1
     // The number of items the player has already collected
     public int collectedItems = 0;
-
     private const int ZERO = 0;
-
-
-
 
     // Start is called before the first frame update
     private void Start()
@@ -46,7 +40,6 @@ public class itemsScript : MonoBehaviour
             itemCounterText.text = "כל הפריטים נאספו! כעת תוכל לצאת מהמבוך ולנצח!!!";
         }
     }
-
 
     // This method returns whether the player has collected all the required items
     public bool AllItemsCollected()

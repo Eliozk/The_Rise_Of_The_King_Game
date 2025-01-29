@@ -43,27 +43,27 @@ public class TimeData : ScriptableObject
     [Tooltip("List of games and their times.")]
     public List<GameTime> gameTimes = new List<GameTime>();
 
-   /// <summary>
-/// Initializes time tracking for all stages based on the data in MiniGamesAndStages.
-/// This method ensures that only existing games and stages in TimeData are updated.
-/// </summary>
-/// <param name="miniGamesAndStages">Reference to the MiniGamesAndStages ScriptableObject.</param>
-/// <summary>
-/// Initializes all stage times for existing games to 0.
-/// Ensures that all games and their stages start with a time of 0.
-/// </summary>
-public void InitializeTimesToZero()
-{
-    foreach (var game in gameTimes)
+    /// <summary>
+    /// Initializes time tracking for all stages based on the data in MiniGamesAndStages.
+    /// This method ensures that only existing games and stages in TimeData are updated.
+    /// </summary>
+    /// <param name="miniGamesAndStages">Reference to the MiniGamesAndStages ScriptableObject.</param>
+    /// <summary>
+    /// Initializes all stage times for existing games to 0.
+    /// Ensures that all games and their stages start with a time of 0.
+    /// </summary>
+    public void InitializeTimesToZero()
     {
-        foreach (var stage in game.stageTimes)
+        foreach (var game in gameTimes)
         {
-            stage.time = 0f; // Reset the time for all stages
+            foreach (var stage in game.stageTimes)
+            {
+                stage.time = 0f; // Reset the time for all stages
+            }
+            game.CalculateTotalTime(); // Recalculate total time for the game
+            Debug.Log($"[TimeData] Initialized times for game '{game.gameName}' to 0.");
         }
-        game.CalculateTotalTime(); // Recalculate total time for the game
-        Debug.Log($"[TimeData] Initialized times for game '{game.gameName}' to 0.");
     }
-}
     /// <summary>
     /// Updates the time for a specific stage in a mini-game.
     /// </summary>

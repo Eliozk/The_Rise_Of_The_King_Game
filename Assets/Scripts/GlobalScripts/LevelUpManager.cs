@@ -17,7 +17,6 @@ public class LevelUpManager : MonoBehaviour
     [SerializeField] private Button continueButton; // Button to proceed to the next level.
     [SerializeField] private Button quitButton; // Button to quit the game.
     [SerializeField] private Button nextButton; // Button to restart the game from the first level when we finish game.
-
     private int levelsAmount = 2; // Number of levels for each game (0,1,2)
     private SceneManagement sceneManagement;
 
@@ -28,7 +27,6 @@ public class LevelUpManager : MonoBehaviour
     [SerializeField] private ScoreData scoreData; // Reference to ScoreData Scriptable Object.
     [SerializeField] private TimeData timeData; // Reference to TimeData Scriptable Object.
     [SerializeField] private GameStats gameStats; // Reference to GameStats Scriptable Object.
-
     private bool magicalItemsDisplayed = false; // Ensures magical items are only displayed once per level.
 
     private void Start()
@@ -79,7 +77,7 @@ public class LevelUpManager : MonoBehaviour
 
             DisplayMagicalItems(() =>
             {
-            Debug.Log("[LevelUpManager] Entering DisplayMagicalItems - !magicalItemsDisplayed = true");
+                Debug.Log("[LevelUpManager] Entering DisplayMagicalItems - !magicalItemsDisplayed = true");
 
                 magicalItemsDisplayed = true;
                 DisplayLevelUpScreen(onComplete);
@@ -152,7 +150,6 @@ public class LevelUpManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(delay); // Wait without being affected by timeScale
         callback?.Invoke();
     }
-
 
     /// <summary>
     /// Displays magical items if they are unlocked.
@@ -242,7 +239,6 @@ public class LevelUpManager : MonoBehaviour
         }
 
         levelUpPic.SetActive(true);
-
         // Optional: Play level completion sound
         if (levelEndSound != null)
         {
@@ -255,7 +251,6 @@ public class LevelUpManager : MonoBehaviour
             Debug.Log("[LevelUpManager] Level-Up sound played.");
         }
     }
-
 
     /// <summary>
     /// Checks if all levels are complete.

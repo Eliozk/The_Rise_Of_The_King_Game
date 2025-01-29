@@ -14,7 +14,7 @@ public class ScoreManager : MonoBehaviour
     [Tooltip("TextMeshPro element for displaying the score.")]
     public TMP_Text scoreText;
 
-   /// <summary>
+    /// <summary>
     /// Updates the score for a specific stage in a mini-game and displays it.
     /// </summary>
     /// <param name="gameName">The name of the mini-game.</param>
@@ -33,7 +33,7 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-     /// <summary>
+    /// <summary>
     /// Displays the total score for a specific mini-game.
     /// </summary>
     /// <param name="gameName">The name of the mini-game.</param>

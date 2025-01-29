@@ -14,7 +14,7 @@ public class GameDataInitializer : MonoBehaviour
 
     [Tooltip("Reference to the TimeData Scriptable Object.")]
     public TimeData timeData;
-    
+
     [Tooltip("Reference to the GameStats Scriptable Object.")]
     public GameStats gameStats;
 
@@ -35,21 +35,20 @@ public class GameDataInitializer : MonoBehaviour
             Debug.LogError("[GameDataInitializer] Scriptable Objects are not assigned!");
             return;
         }
-
         InitializeGameData();
     }
 
-   private void InitializeGameData()
-{
+    private void InitializeGameData()
+    {
         // Initialize score data for the All the game
         scoreData.InitializeScoresToZero();
         // Initialize time data for All the game
-        timeData.InitializeTimesToZero();   
-         // Initialize time data for All the game
-        gameStats.InitializeStats(); 
-        gameStats.ResetMagicalItemFlags();  
+        timeData.InitializeTimesToZero();
+        // Initialize time data for All the game
+        gameStats.InitializeStats();
+        gameStats.ResetMagicalItemFlags();
 
-}
+    }
 
     /// <summary>
     /// Provides the maximum score allowed in the game.

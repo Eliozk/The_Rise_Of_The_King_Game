@@ -64,7 +64,6 @@ public class DragAndDrop : MonoBehaviour
         originalScale = transform.localScale;
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalSortingOrder = spriteRenderer.sortingOrder;
-
         dragAction = inputActions.FindAction("Drag");
         dragAction.Enable();
     }
@@ -74,23 +73,22 @@ public class DragAndDrop : MonoBehaviour
     /// Converts screen coordinates to world position.
     /// </summary>
     void Update()
-{
-    if (isDragging)
     {
-        Vector2 pointerPosition = dragAction.ReadValue<Vector2>();
+        if (isDragging)
+        {
+            Vector2 pointerPosition = dragAction.ReadValue<Vector2>();
 
-        // Ensure pointer position is within screen bounds
-        pointerPosition.x = Mathf.Clamp(pointerPosition.x, 10, Screen.width - 10);
-        pointerPosition.y = Mathf.Clamp(pointerPosition.y, 10, Screen.height - 10);
+            // Ensure pointer position is within screen bounds
+            pointerPosition.x = Mathf.Clamp(pointerPosition.x, 10, Screen.width - 10);
+            pointerPosition.y = Mathf.Clamp(pointerPosition.y, 10, Screen.height - 10);
 
-        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(
-            new Vector3(pointerPosition.x, pointerPosition.y, Mathf.Abs(Camera.main.transform.position.z))
-        );
+            Vector3 worldPosition = Camera.main.ScreenToWorldPoint(
+                new Vector3(pointerPosition.x, pointerPosition.y, Mathf.Abs(Camera.main.transform.position.z))
+            );
 
-        transform.position = new Vector3(worldPosition.x, worldPosition.y, transform.position.z);
+            transform.position = new Vector3(worldPosition.x, worldPosition.y, transform.position.z);
+        }
     }
-}
-
 
     /// <summary>
     /// Handles the start of a drag operation.

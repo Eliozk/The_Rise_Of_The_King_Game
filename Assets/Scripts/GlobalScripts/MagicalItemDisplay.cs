@@ -25,9 +25,7 @@ public class MagicalItemDisplay : MonoBehaviour
 
     [Tooltip("Scriptable Object reference to GameStats.")]
     public GameStats gameStats;
-
     private AudioSource audioSource;
-
     private SceneManagement sceneManagement;
 
     private void Start()
@@ -52,7 +50,6 @@ public class MagicalItemDisplay : MonoBehaviour
             audioSource = gameObject.AddComponent<AudioSource>();
         }
     }
-
 
     /// <summary>
     /// Checks the GameStats ScriptableObject and displays magical items accordingly.
@@ -113,7 +110,7 @@ public class MagicalItemDisplay : MonoBehaviour
         }
         if (gameStats.crown && !gameStats.isCrownDisplayed && crownImage != null)
         {
-                Debug.Log("[MagicalItemDisplay] Displaying Crown");
+            Debug.Log("[MagicalItemDisplay] Displaying Crown");
 
             crownImage.SetActive(true);
             gameStats.isCrownDisplayed = true; // Mark as displayed globally
@@ -127,7 +124,7 @@ public class MagicalItemDisplay : MonoBehaviour
             if (gameStats.witchStick) { witchStickImage.SetActive(true); }
             if (gameStats.diamond) { diamondImage.SetActive(true); }
             if (gameStats.crown) { crownImage.SetActive(true); }
-               
+
             Debug.Log($"[MagicalItemDisplay] magicalItemContainer Active BEFORE activation: {magicalItemContainer.activeSelf}");
             magicalItemContainer.SetActive(true);
             Debug.Log($"[MagicalItemDisplay] magicalItemContainer Active AFTER activation: {magicalItemContainer.activeSelf}");
@@ -137,7 +134,7 @@ public class MagicalItemDisplay : MonoBehaviour
 
             StartCoroutine(WaitAndInvoke(displayDuration, () =>
             {
-                       
+
                 Debug.Log($"[MagicalItemDisplay] Invoking onComplete after magical display. magicalItemContainer Active={magicalItemContainer.activeSelf}");
                 HideMagicalDisplay();
                 onComplete?.Invoke();
@@ -154,22 +151,21 @@ public class MagicalItemDisplay : MonoBehaviour
         }
     }
 
-
-
     /// <summary>
     /// Hides all magical items and stops effects.
     /// </summary>
     private void HideMagicalDisplay()
     {
-        if (magicalItemContainer != null){
+        if (magicalItemContainer != null)
+        {
             Debug.Log($"[MagicalItemDisplay] Hiding magicalItemContainer. Active before hide: {magicalItemContainer.activeSelf}");
-            magicalItemContainer.SetActive(false); 
+            magicalItemContainer.SetActive(false);
             Debug.Log($"[MagicalItemDisplay] magicalItemContainer hidden. Active after hide: {magicalItemContainer.activeSelf}");
         }
         else
-    {
-        Debug.LogWarning("[MagicalItemDisplay] Magical item container is null!");
-    }
+        {
+            Debug.LogWarning("[MagicalItemDisplay] Magical item container is null!");
+        }
         if (magicalItemEffect != null && magicalItemEffect.isPlaying) magicalItemEffect.Stop();
     }
 

@@ -6,9 +6,7 @@ public class Collectible : MonoBehaviour
     // Script to handle item collection
     [SerializeField] private MazeProgress mazeProgress;
 
-
-
-   private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
@@ -24,7 +22,7 @@ public class Collectible : MonoBehaviour
             }
 
             // Check for MazeProgress
-           
+
             if (mazeProgress != null)
             {
                 mazeProgress.OnItemCollected();
@@ -33,7 +31,6 @@ public class Collectible : MonoBehaviour
             {
                 Debug.LogError("[Collectible] MazeProgress not found in the scene.");
             }
-
             // Destroy the collectible object
             Destroy(gameObject);
         }

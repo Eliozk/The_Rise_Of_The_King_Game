@@ -10,7 +10,6 @@ public class ExitTrigger : MonoBehaviour
         // Reset the global trigger at the start of the scene
         ResetGlobalTrigger();
     }
-    
     // This method is triggered when another collider enters the trigger area of this object.
     private void OnTriggerEnter(Collider other)
     {
@@ -23,10 +22,8 @@ public class ExitTrigger : MonoBehaviour
         // Check if the collider is the player by comparing tags
         if (other.CompareTag("Player"))
         {
-
             // Find the item manager in the scene to check item collection status
             var itemManager = FindFirstObjectByType<itemsScript>();
-
             // Ensure the item manager is found and check if all items have been collected
             if (itemManager != null && itemManager.AllItemsCollected())
             {

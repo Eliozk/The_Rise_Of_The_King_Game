@@ -27,7 +27,7 @@ public class ExplanationManager : MonoBehaviour
             {
                 explanationSlides[i] = slidesParent.GetChild(i).gameObject;
             }
-            Debug.Log("Explanation slides updated after reloading IntroScene and amount of slides?--> "+explanationSlides.Length );
+            Debug.Log("Explanation slides updated after reloading IntroScene and amount of slides?--> " + explanationSlides.Length);
         }
         else
         {
@@ -101,6 +101,6 @@ public class ExplanationManager : MonoBehaviour
         }
         //For nicer format we start debug from 1 and not 0 therefore currentindex+1.
         Debug.Log($"Displaying slide {currentSlideIndex + 1}/{explanationSlides.Length}");
-        Debug.Log($"Slides length--> "+ explanationSlides.Length);
+        Debug.Log($"Slides length--> " + explanationSlides.Length);
     }
 }
